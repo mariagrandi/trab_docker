@@ -24,4 +24,15 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext (
+                to: 'mvrg1603@gmail.com',
+                body: '${DEFAULT_CONTENT}',
+                mimeType: 'text/html',
+                subject: '${DEFAULT_SUBJECT}',
+                replyTo: 'mvrg1603@gmail.com'
+            )
+        }
+    }
 }
